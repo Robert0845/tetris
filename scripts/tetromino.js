@@ -10,7 +10,7 @@ class Tetromino {
         this.canvas = canvas;
         this.ctx = this.canvas.getContext('2d');
         this.cellSize = cellSize;
-        this.shape = shapes;
+        this.shapes = shapes;
         this.rotation = 0;
         this.initPosition = initPosition;
         this.position = new position(this.initPosition.row, this.initPosition.column);
@@ -19,10 +19,10 @@ class Tetromino {
 
     drawSquare(x, y, size, color) {
         this.ctx.fillStyle = color;
-        this.ctx.fillRect(x, y, size, size);
+        this.ctx.fillRect(x,y,size,size);
     }
 
-    drawTriangle(x1, y1, x2, y2, x3, y3, color) {
+    drawTriangle(x1,y1,x2,y2,x3,y3,color) {
         this.ctx.beginPath();
         this.ctx.moveTo(x1, y1);
         this.ctx.lineTo(x2, y2);
@@ -35,9 +35,9 @@ class Tetromino {
     getColorPalette(id) {
         const palette = {
             1: {
-                rightTriangle: '#b5193b',
+                rightTriangle: '#fe8601',
                 leftTriangle: '#ffffff',
-                square: '#ee1b2e'
+                square: '#ffdb01'
             },
             2: {
                 rightTriangle: '#fe5e02',
@@ -45,9 +45,9 @@ class Tetromino {
                 square: '#fe8602'
             },
             3: {
-                rightTriangle: '#fe8601',
+                rightTriangle: '#b5193b',
                 leftTriangle: '#ffffff',
-                square: '#ffdb01'
+                square: '#ee1b2e'
             },
             4: {
                 rightTriangle: '#22974c',
@@ -115,8 +115,8 @@ class Tetromino {
     }
 
     currentPositions() {
-        const shape = this.currentShape();
         const positions = [];  
+        const shape = this.currentShape();
         for (let i = 0; i < shape.length; i++) {
             positions.push(new position(
                 this.position.row + shape[i].row,
@@ -126,7 +126,7 @@ class Tetromino {
         return positions;
     }
 
-    move(row) {
+    move(row, column) {
         this.position.row += row;
         this.position.column += column;
     }
@@ -143,7 +143,7 @@ const TetrominoTypes = {
         initPosition: new position(0,3),
         shapes: [  
             [new position(0,1), new position(1,0), new position(1,1), new position(1,2)],
-            [new position(0,1), new position(1,0), new position(1,2), new position(2,1)],
+            [new position(0,1), new position(1,1), new position(1,2), new position(2,1)],
             [new position(1,0), new position(1,1), new position(1,2), new position(2,1)],
             [new position(0,1), new position(1,0), new position(1,1), new position(2,1)]
         ]
@@ -208,4 +208,4 @@ const TetrominoTypes = {
 
 }
 
-export { Tetromino, TetrominoTypes, position };
+export {position, Tetromino, TetrominoTypes};

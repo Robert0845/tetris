@@ -22,11 +22,11 @@ export class Grid {
         }
     }
 
-    drawSquare(x, y, side, color, borderColor) {
+    drawSquere(x,y,side,color,borderColor) {
         const bordeSize = side / 10;
 
         this.ctx.fillStyle = color;
-        this.ctx.fillRect(x, y, side, side);
+        this.ctx.fillRect(x,y,side,side);
 
         this.ctx.strokeStyle = borderColor;
         this.ctx.lineWidth = bordeSize;
@@ -34,14 +34,14 @@ export class Grid {
     }
 
     getCoordinates(col, row) {
-        return { x: col * (this.cellSize+this.space), y: row * (this.cellSize+this.space) };
+        return { x: col * (this.cellSize+this.space), y: row * (this.cellSize+this.space)};
     }
 
     draw() {
         for (let r = 0; r < this.rows; r++) {
             for (let c = 0; c < this.cols; c++) {
                 const position = this.getCoordinates(c, r);
-                this.drawSquare(position.x, position.y, this.cellSize, '#000', '#303030');
+                this.drawSquere(position.x, position.y, this.cellSize, '#000', '#303030');
             }
         }
         this.printMatriz();
