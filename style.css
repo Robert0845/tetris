@@ -1,9 +1,129 @@
 body {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a;
+    color: #eee;
+    font-family: system-ui, sans-serif;
+}
+
+.game {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 16px;
 }
 
 .canvas-container {
+    position: relative;
     background-color: black;
     padding: 12px 15px;
     border-radius: 8px;
+}
+
+#canvas-tetris {
+    display: block;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 160px;
+}
+
+.panel h2 {
+    margin: 0 0 8px;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #aaa;
+}
+
+.preview {
+    display: block;
+    background-color: black;
+    padding: 8px;
+    border-radius: 8px;
+}
+
+.stats {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 6px 12px;
+    margin: 0;
+}
+
+.stats dt {
+    color: #aaa;
+}
+
+.stats dd {
+    margin: 0;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    font-weight: bold;
+}
+
+.controls {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 0.85rem;
+    line-height: 1.9;
+}
+
+kbd {
+    display: inline-block;
+    min-width: 1.4em;
+    padding: 0 4px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    background-color: #2a2a2a;
+    text-align: center;
+    font-family: inherit;
+    font-size: 0.8rem;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 8px;
+    text-align: center;
+}
+
+.overlay[hidden] {
+    display: none;
+}
+
+.overlay p {
+    margin: 4px;
+}
+
+.overlay-title {
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+/* En pantallas estrechas los paneles pasan debajo del tablero. */
+@media (max-width: 640px) {
+    .game {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .canvas-container {
+        order: -1;
+    }
+
+    .controls {
+        display: none;
+    }
 }

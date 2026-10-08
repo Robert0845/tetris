@@ -1,0 +1,6 @@
+{
+  "tabWidth": 4,
+  "singleQuote": true,
+  "printWidth": 110,
+  "overrides": [{ "files": ["*.json", "*.html"], "options": { "tabWidth": 2 } }]
+}

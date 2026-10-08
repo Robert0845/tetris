@@ -1,17 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tetris</title>
-    <link rel="stylesheet" href="/scripts/style.css">
-</head>
-<body>
-    <div class="canvas-container">
-        <canvas id="canvas-tetris"></canvas>
-    </div>
-    
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <main class="game">
+      <aside class="panel">
+        <section>
+          <h2>Hold</h2>
+          <canvas id="canvas-hold" class="preview"></canvas>
+        </section>
+        <section>
+          <h2>Controles</h2>
+          <ul class="controls">
+            <li><kbd>←</kbd> <kbd>→</kbd> Mover</li>
+            <li><kbd>↓</kbd> Bajar</li>
+            <li><kbd>↑</kbd> <kbd>X</kbd> Rotar</li>
+            <li><kbd>Z</kbd> Rotar al revés</li>
+            <li><kbd>Espacio</kbd> Caída</li>
+            <li><kbd>C</kbd> Guardar</li>
+            <li><kbd>P</kbd> Pausa</li>
+            <li><kbd>R</kbd> Reiniciar</li>
+          </ul>
+        </section>
+      </aside>
 
-    <script src="/scripts/main.js" type="module"></script>
-</body>
+      <div class="canvas-container">
+        <canvas id="canvas-tetris"></canvas>
+        <div id="overlay" class="overlay" hidden>
+          <p id="overlay-title" class="overlay-title"></p>
+          <p id="overlay-text"></p>
+        </div>
+      </div>
+
+      <aside class="panel">
+        <section>
+          <h2>Siguiente</h2>
+          <canvas id="canvas-next" class="preview"></canvas>
+        </section>
+        <dl class="stats">
+          <dt>Puntos</dt>
+          <dd id="score">0</dd>
+          <dt>Récord</dt>
+          <dd id="high-score">0</dd>
+          <dt>Nivel</dt>
+          <dd id="level">1</dd>
+          <dt>Líneas</dt>
+          <dd id="lines">0</dd>
+        </dl>
+      </aside>
+    </main>
+
+    <script src="./src/main.js" type="module"></script>
+  </body>
 </html>
